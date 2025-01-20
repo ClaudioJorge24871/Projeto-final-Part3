@@ -5,6 +5,7 @@ from pathlib import Path
 from tbl_generator import gera_tabela
 from gera_tabela_txts import complemento_das_comparacoes
 from gera_tabela_combinada import cria_tabela_combinada
+from Htmls_Controller import controller_htmls
 from shutil import rmtree
 
 # root do projeto 
@@ -53,8 +54,10 @@ def main():
     # Cria a tabela final com as comparacoes e metricas de desempenho dos alunos comparados
     #cria_tabela_combinada(mydb)
     
-    # Gera o template de html base
+    template_default = "tmp_alunos"
     
+    # Gera o template de html base
+    controller_htmls(template_default)
 
     
 def conectarDB(hostname, username, pwd, database):
