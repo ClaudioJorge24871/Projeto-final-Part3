@@ -54,8 +54,7 @@ def main():
     # Cria a tabela final com as comparacoes e metricas de desempenho dos alunos comparados
     #cria_tabela_combinada(mydb)
     
-    template_default = "tmp_alunos"
-    
+    template_default = "alunos"
     # Gera o template de html base
     controller_htmls(template_default,mydb)
 
