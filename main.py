@@ -57,7 +57,7 @@ def main():
     template_default = "tmp_alunos"
     
     # Gera o template de html base
-    controller_htmls(template_default)
+    controller_htmls(template_default,mydb)
 
     
 def conectarDB(hostname, username, pwd, database):
