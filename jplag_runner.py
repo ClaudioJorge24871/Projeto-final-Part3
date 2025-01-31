@@ -44,6 +44,7 @@ def executar_jplag(pasta_exercicios, output_path, jplag_path):
 
     comando = [                                                                 # gera o comando para rodar o jplag no subprocess
         "java","-jar", jplag_path,
+        "--shown-comparisons=-1",
         "-l", linguagem,
         pasta_exercicios,
         "-r",pasta_resultados
