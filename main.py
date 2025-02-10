@@ -5,6 +5,7 @@ from pathlib import Path
 from tbl_generator import gera_tabela
 from gera_tabela_txts import complemento_das_comparacoes
 from gera_tabela_combinada import cria_tabela_combinada
+from codes_storage import store_codes
 from shutil import rmtree
 
 # root do projeto 
@@ -35,23 +36,26 @@ def main():
     mydb = conectarDB(HOST,USER,PASSWORD,DATABASE)
     print(mydb)
     
+    # Store the students codes 
+    store_codes(mydb,DATAPATH) 
+    
     # Run o jplag
-    run_jplag(DATAPATH,JPLAGPATH)
+    #run_jplag(DATAPATH,JPLAGPATH)
 
     # Parsing dos resultados do jplag para ficheiro .json
-    parse_results(ZIPFILEPATH)
+    #parse_results(ZIPFILEPATH)
 
     # Apaga a pasta de relatorios zips quando já nao forem necessários
-    rmtree(ZIPFILEPATH)
+    #rmtree(ZIPFILEPATH)
     
     # Cria a tabela desejada e insere os dados do .json 
-    gera_tabela(mydb,DATA_JSON_PATH)
+    #gera_tabela(mydb,DATA_JSON_PATH)
 
     # Cria a tabela dos txts
-    complemento_das_comparacoes(mydb,TXTFOLDERPATH)
+    #complemento_das_comparacoes(mydb,TXTFOLDERPATH)
 
     # Cria a tabela final com as comparacoes e metricas de desempenho dos alunos comparados
-    cria_tabela_combinada(mydb)
+    #cria_tabela_combinada(mydb)
 
     
 def conectarDB(hostname, username, pwd, database):
